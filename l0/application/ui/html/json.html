@@ -1,0 +1,12 @@
+{{ define "json"}}
+{{ template "header"}}
+<div class="container">
+    <div class="hwrap">
+        <a href="/">Главное меню</a>
+        <a href="#" onclick="history.go(-1)">Назад</a>
+        <pre><code>{{ . }}</code></pre>
+    </div>
+
+</div>
+{{ template "footer" }}
+{{ end }}

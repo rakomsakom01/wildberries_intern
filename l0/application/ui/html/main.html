@@ -1,0 +1,20 @@
+{{ define "main"}}
+{{ template "header"}}
+
+<div class="container">
+    <div class="wrap">
+        <div class="mainmenu">
+            <a href="/query">Получить json</a>
+            <a href=".">Обновить</a>
+        </div>
+        <div class="scrollmenu">
+            {{ range . }}
+        
+            <a href="/json/?id={{ . }}">{{ . }}</a>
+
+            {{ end }}
+        </div>
+    </div>
+</div>
+{{ template "footer" }}
+{{ end }}

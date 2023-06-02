@@ -1,0 +1,18 @@
+{{ define "query"}}
+{{ template "header"}}
+<div class="container">
+    <div class="hwrap">
+        <form action="/parse/" class="form" method="post">
+            <input type="text" name="query">
+            <div class="formbuttons">
+                <input type="submit" value="Получить">
+                <input type="reset" value="Очистить">
+            </div>
+        </form>
+
+        <a href="/">Назад</a>
+    </div>
+
+</div>
+{{ template "footer" }}
+{{ end }}

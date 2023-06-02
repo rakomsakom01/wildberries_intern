@@ -1,0 +1,40 @@
+version: '3.1'
+
+services:
+  postgres:
+    container_name: postgres
+    image: postgres:latest
+    restart: always
+    environment:
+      POSTGRES_USER: root
+      POSTGRES_PASSWORD: example
+    volumes:
+      - ./data/pg/:/var/lib/postgresql/data
+    ports:
+      - 5432:5432
+
+
+  nats:
+    container_name: nats
+    image: nats-streaming:latest
+    restart: always
+    volumes:
+      - ./data/nats:/data
+    ports:
+      - 4222:4222 
+      - 8222:8222
+
+  pgadmin:
+    container_name: pgadmin
+    image: dpage/pgadmin4:latest
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin@paul.com"
+      PGADMIN_DEFAULT_PASSWORD: "example"
+      PGADMIN_DISABLE_POSTFIX: "true"
+      PGADMIN_CONFIG_SERVER_MODE: "False"
+    volumes:
+      - ./data/pgadmin:/var/lib/pgadmin
+    ports:
+      - "8223:80"
+    restart: unless-stopped
+
